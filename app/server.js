@@ -27,7 +27,7 @@ const HOST = '0.0.0.0';
 // App
 const app = express();
 app.get('/', (req, res) => {
-  res.send('Nodejs Hello World from kube-demo test \n IP address is:'+ip);
+  res.send('Nodejs Hello World from kube-demo \n IP address is:'+ip);
 });
 
 app.listen(PORT, HOST);
