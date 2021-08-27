@@ -46,11 +46,16 @@ eksctl is an official AWS tool to create VPC, Subnet, Sec Group, node groups and
 ```bash 
 eksctl create cluster --name=kube-demo-cluster
 ```
+We are using default configurations of eksctl which can be overwritten using cluster-config.yaml
+```bash 
+eksctl create cluster -f cluster-config.yaml
+```
 This will take some time, meanwhile can move to other configurations
-#### Step 3: Setup GitHub Repo and create Actions Workflow repo
+
+#### Step 3: Setup GitHub Repo and create Actions Workflow
 - Fork the kube-demo repo into your GitHub user account -  https://github.com/sinhalvi/kube-demo
 - Navigate to the .github directory in the GitHub web interface Code tab or native editor like VSCode. Click on the Actions tab and enable GitHub Actions workflow in this forked repo.
-- View the workflow in your repo under .github/workflows/build.yml, ensure the region where EKS cluster resides. This should match the region in ~/.aws/config or the region specified on the eksctl command line.
+- View the workflow in your repo under .github/workflows/build.yml for all configurations which can be overwritten. The below parameters are secrets stored in under your repo
 ```yaml
     AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
     AWS_DEFAULT_OUTPUT: json
@@ -60,7 +65,7 @@ This will take some time, meanwhile can move to other configurations
 ```
 
 #### Step 4: Configure secrets
-In the build.yml file refer to secrets. Secrets are set up in the Github repo Settings tab, which are found at the bottom of the left navigation menu in the Secrets section.
+Secrets are set up in the Github repo Settings tab, which are found at the bottom of the left navigation menu in the Secrets section.
 
 Create four secrets called AWS_DEFAULT_REGION, AWS_ACCOUNT_ID, AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY with your AWS account ID (obtainable from the AWS console or by running aws sts get-caller-identity)and the new user’s key ID and the secret key (found in ~/.aws/credentials file). Secrets associated with your GitHub repo allow to keep sensitive data out of source code, but still make them available to GitHub Actions workflows.
 
@@ -90,7 +95,7 @@ This would create the LoadBalancer service as well as pods in the eks nodes.
 ```bash 
 kubectl get svc
 ```
-to get the loadbalancer endpoint. 
+to get the loadbalancer endpoint
 
 2. hit the url http://<ELB-EndPoint> to check the end result.
 ```bash 
