@@ -100,4 +100,20 @@ curl http://<ELB-EndPoint>
 3. Notice the IP change with repeated hits which shows that both pods are active 
 
 ![alt text](https://github.com/sinhalvi/kube-demo/blob/main/test_result.png)
+ 
+## Enhancement Ideas
+
+#### Improvements (if had more time)
+- SSL certificates and https for external facing urls
+- Better versioning and tagging for docker image
+- Wrapper script for entire installation and configurations
+
+### For better deployment process and ops
+One of the two options below could be implemented to automate the application deployment process:
+
+1. Using fluxcd:
+Set up Flux on the cluster using [https://fluxcd.io/legacy/flux/get-started/]. Flux watches ECR for changes to the image listed in deployment configuration. When it detects a change, it updates the EKS cluster with the new image, no manual helm update needed
+
+2. gitops deploy workflow
+Setup another workflow in github which can detect the changes in helm chart and automatically apply helm upgrade on git push  
 
