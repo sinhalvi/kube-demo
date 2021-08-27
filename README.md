@@ -36,7 +36,7 @@ aws configure
 ## Installation
 
 Using Git bash on desktop
-#### Step 1: create a aws ECR repository to push application builds
+#### Step 1: create a aws ECR repository to push application docker images
 ```bash
 aws ecr create-repository --repository-name kube-demo
 ```
