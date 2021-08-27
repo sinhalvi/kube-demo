@@ -1,0 +1,34 @@
+##This is used for manual kubectl pods deployment
+#kubectl apply -f manifests/deployment.yml
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kube-demo-nodejs
+  annotations:
+    fluxcd.io/automated: "true"
+spec:
+  replicas: 2
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  minReadySeconds: 5
+  selector:
+    matchLabels:
+      app: kube-demo-nodejs
+  template:
+    metadata:
+      labels:
+        app: kube-demo-nodejs
+    spec:
+      containers:
+      - name: kube-demo-nodejs
+        image: 248262845637.dkr.ecr.us-west-2.amazonaws.com/kube-demo:175eaa632bfcab93f6d13a0b833689734950ce0e
+        ports:
+        - containerPort: 5000
+        resources:
+          requests:
+            cpu: 250m
+          limits:
+            cpu: 500m

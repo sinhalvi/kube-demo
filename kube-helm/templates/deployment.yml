@@ -1,0 +1,33 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.name }}
+  annotations:
+    fluxcd.io/automated: "true"
+spec:
+  replicas: {{ .Values.replicaCount }}
+  strategy:
+    rollingUpdate:
+      maxSurge: {{ .Values.maxSurge }}
+      maxUnavailable: {{ .Values.minUnav }}
+  minReadySeconds: {{ .Values.minReadySec }}
+  selector:
+    matchLabels:
+      app: {{ .Values.name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.name }}
+    spec:
+      containers:
+      - name: {{ .Values.name }}
+        image: {{ .Values.containerimage }}
+        imagePullPolicy: {{ .Values.pullPolicy }}
+        ports:
+        - containerPort: {{ .Values.port }}
+        resources:
+          requests:
+            cpu: {{ .Values.cpu }}
+          limits:
+            cpu: {{ .Values.mcpu }}

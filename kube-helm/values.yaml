@@ -1,0 +1,21 @@
+# Default values for helm-release.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 2
+
+name: kube-demo-nodejs
+
+maxSurge: 1
+
+minUnav: 1
+
+minReadySec: 5
+
+containerimage: 597548324347.dkr.ecr.us-east-2.amazonaws.com/example-eks:d8bcb211dfb5cac88a71d2d92a6a3994c582f061
+pullpolicy: Always
+port: 5000
+
+cpu: 250m
+
+mcpu: 500m

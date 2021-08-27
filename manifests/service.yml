@@ -1,0 +1,13 @@
+##This is used for manual kubectl services deployment
+#kubectl apply -f manifests/service.yml
+apiVersion: v1
+kind: Service
+metadata:
+  name: kube-demo-nodejs
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 80
+      targetPort: 5000
+  selector:
+    app: kube-demo-nodejs
