@@ -18,7 +18,7 @@ env:
   AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
   AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
   AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-  #CONTAINER_IMAGE: kube-demo:${{ github.sha }}
+  CONTAINER_IMAGE_TAG: kube-demo:${{ github.sha }}
   CONTAINER_IMAGE: kube-demo:latest
 
 jobs:
@@ -47,7 +47,8 @@ jobs:
         # Build and tag the image
         docker build \
           -t $CONTAINER_IMAGE \
-          -t $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$CONTAINER_IMAGE ./app
+          -t $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$CONTAINER_IMAGE \
+          -t $CONTAINER_IMAGE_TAG ./app
            
     # Add additional steps here like scanning of image
 
