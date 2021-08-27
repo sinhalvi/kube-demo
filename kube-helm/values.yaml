@@ -12,9 +12,8 @@ minUnav: 1
 
 minReadySec: 5
 
-containerimage: kube-demo
-pullpolicy: Always
-tag: latest
+containerimage: 248262845637.dkr.ecr.us-west-2.amazonaws.com/kube-demo:latest
+
 port: 5000
 
 cpu: 250m

@@ -22,8 +22,7 @@ spec:
     spec:
       containers:
       - name: {{ .Values.name }}
-        image: "{{ .Values.containerimage }}:{{ .Values.tag }}"
-        imagePullPolicy: {{ .Values.pullpolicy }}
+        image: {{ .Values.containerimage }}
         ports:
         - containerPort: {{ .Values.port }}
         resources:

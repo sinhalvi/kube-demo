@@ -24,7 +24,9 @@ spec:
     spec:
       containers:
       - name: kube-demo-nodejs
-        image: 248262845637.dkr.ecr.us-west-2.amazonaws.com/kube-demo:175eaa632bfcab93f6d13a0b833689734950ce0e
+        #image: 248262845637.dkr.ecr.us-west-2.amazonaws.com/kube-demo:175eaa632bfcab93f6d13a0b833689734950ce0e
+        image: "kube-demo:latest"
+        imagePullPolicy: Always
         ports:
         - containerPort: 5000
         resources:
