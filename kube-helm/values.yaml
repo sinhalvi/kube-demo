@@ -12,8 +12,9 @@ minUnav: 1
 
 minReadySec: 5
 
-containerimage: 248262845637.dkr.ecr.us-west-2.amazonaws.com/kube-demo:d5d033abfb73097b99c2ea66a7979287e84843f5
+containerimage: kube-demo
 pullpolicy: Always
+tag: latest
 port: 5000
 
 cpu: 250m
