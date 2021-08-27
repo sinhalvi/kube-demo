@@ -23,6 +23,7 @@ spec:
       containers:
       - name: {{ .Values.name }}
         image: {{ .Values.containerimage }}
+        imagePullPolicy: {{ .Values.pullPolicy }}
         ports:
         - containerPort: {{ .Values.port }}
         resources:

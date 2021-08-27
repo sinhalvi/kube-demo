@@ -13,6 +13,7 @@ minUnav: 1
 minReadySec: 5
 
 containerimage: 248262845637.dkr.ecr.us-west-2.amazonaws.com/kube-demo:latest
+pullPolicy: Always
 
 port: 5000
 
