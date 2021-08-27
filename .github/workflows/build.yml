@@ -1,4 +1,7 @@
 # build.yml
+# This build file is used by git actions to automatically build and push
+# the docker image to ECR
+# The build and deploy pipeline is automatically triggered on each push to main branch
 on:
   pull_request:
     paths:
@@ -6,8 +9,8 @@ on:
   push:
     paths:
     - app/**
-    branches:         # array of glob patterns matching against refs/heads. Optional; defaults to all
-    - main          # triggers on pushes that contain changes in master
+    branches:         
+    - main          # triggers on pushes that contain changes in main
 
 name: Build and Push to ECR
 
@@ -49,9 +52,9 @@ jobs:
           -t $CONTAINER_IMAGE \
           -t $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$CONTAINER_IMAGE ./app
            
-    # Add additional steps here like scanning of image
+    # Add additional steps can be added here like scanning of image
 
-    # Only push to registry on master
+    # Only push to registry on main
     - name: Push
       #if: github.ref == 'refs/heads/main'
       run: |

@@ -1,3 +1,7 @@
+#dockerfile for the nodejs app
+
+#pull the latest version of node repository from public ecr
+#https://gallery.ecr.aws/bitnami/node
 FROM node:16
 
 # Create app directory

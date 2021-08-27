@@ -1,4 +1,4 @@
-# Default values for helm-release.
+# Default values for kube-helm.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
@@ -12,7 +12,8 @@ minUnav: 1
 
 minReadySec: 5
 
-containerimage: 248262845637.dkr.ecr.us-west-2.amazonaws.com/kube-demo:latest
+containerimage: 248262845637.dkr.ecr.us-west-2.amazonaws.com/kube-demo:6c476d64d2c33745a30f9fa45319b0bdc2d3d1d8
+
 pullPolicy: Always
 
 port: 5000

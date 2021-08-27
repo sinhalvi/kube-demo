@@ -1,3 +1,5 @@
+# This is for deployment of pods using helm which pulls the particular docker image
+# All variables defined in values.yaml
 ---
 apiVersion: apps/v1
 kind: Deployment
