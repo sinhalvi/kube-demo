@@ -107,6 +107,7 @@ curl http://<ELB-EndPoint>
 - SSL certificates and https for external facing urls
 - Better versioning and tagging for docker image
 - Wrapper script for entire installation and configurations
+- Logging and Monitoring integration
 
 ### For better deployment process and ops
 One of the two options below could be implemented to automate the application deployment process:
@@ -115,5 +116,5 @@ One of the two options below could be implemented to automate the application de
 Set up Flux on the cluster using [https://fluxcd.io/legacy/flux/get-started/]. Flux watches ECR for changes to the image listed in deployment configuration. When it detects a change, it updates the EKS cluster with the new image, no manual helm update needed
 
 2. gitops deploy workflow
-Setup another workflow in github which can detect the changes in helm chart and automatically apply helm upgrade on git push  
+Setup another workflow using github actions which can detect the changes in helm chart and automatically apply helm upgrade to update pods with latest image
 
