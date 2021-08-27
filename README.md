@@ -1,5 +1,8 @@
 # About the project
-A demo of workflow that integrates github actions, aws EKS and helm. The set up involves creating a  EKS cluster, building and pushing a new docker container image with tags to ECR upon code change using Github actions and finally - deploying the container images to EKS cluster using Helm charts   
+A demo of workflow that integrates github actions, aws EKS and helm. The set up involves creating a  EKS cluster, building and pushing a new docker container image with tags to ECR upon code change using Github actions and finally - deploying the container images to EKS cluster using Helm charts  
+
+# Architecture
+![alt text](https://github.com/sinhalvi/kube-demo/blob/main/test_result.png)
 
 # Built with
 - awscli
