@@ -18,7 +18,8 @@ env:
   AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
   AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
   AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-  CONTAINER_IMAGE: kube-demo:${{ github.sha }}
+  #CONTAINER_IMAGE: kube-demo:${{ github.sha }}
+  CONTAINER_IMAGE: kube-demo:latest
 
 jobs:
   build-and-push:
