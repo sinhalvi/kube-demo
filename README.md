@@ -99,5 +99,5 @@ curl http://<ELB-EndPoint>
 
 3. Notice the IP change with repeated hits which shows that both pods are active 
 
-
+![alt text](https://github.com/sinhalvi/kube-demo/blob/main/test_result.png)
 
