@@ -5,8 +5,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ .Values.name }}
-  annotations:
-    fluxcd.io/automated: "true"
+  #annotations:
+  #  fluxcd.io/automated: "true"
 spec:
   replicas: {{ .Values.replicaCount }}
   strategy:
